@@ -12,4 +12,4 @@ Werkzeug==0.15.5
 WTForms==2.2.1
 marshmallow==2.19.5
 flask-marshmallow==0.10.1
-requests==2.8.1
+requests==2.20.0

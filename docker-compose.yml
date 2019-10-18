@@ -1,0 +1,23 @@
+version: '2'
+services:
+  db:
+    image: mongo:3.0.2
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb:/data/db
+      - ./mongodb_config:/data/configdb
+    network_mode: bridge
+  pos_microservice:
+    build: ./app
+    volumes:
+      - ./app:/app
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - "5000:5000"
+    network_mode: bridge
+
+
